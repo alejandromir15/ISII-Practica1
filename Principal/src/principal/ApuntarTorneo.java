@@ -40,13 +40,18 @@ public class ApuntarTorneo extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        MENU = new javax.swing.JMenuBar();
+        MenuPerfil = new javax.swing.JMenu();
+        MenuMisTorneos = new javax.swing.JMenu();
+        MenuMisTorneos1 = new javax.swing.JMenu();
+        MenuMisTorneos2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Apuntarme a un torneo:");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("APUNTATE A UN TORNEO");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Valencia", "Castellón", "Alicante", "Murcia", "Lleida", "Cuenca", "Teruel", "Albacete", "Tarragona" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Albacete", "Alicante", "Castellón", "Cuenca", "Lleida", "Murcia", "Tarragona", "Teruel", "Valencia" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -97,6 +102,41 @@ public class ApuntarTorneo extends javax.swing.JFrame {
         jTextArea1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jScrollPane2.setViewportView(jTextArea1);
 
+        MenuPerfil.setText("PERFIL");
+        MenuPerfil.setToolTipText("");
+        MenuPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MenuPerfilMouseClicked(evt);
+            }
+        });
+        MENU.add(MenuPerfil);
+
+        MenuMisTorneos.setText("MIS TORNEOS");
+        MenuMisTorneos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MenuMisTorneosMouseClicked(evt);
+            }
+        });
+        MENU.add(MenuMisTorneos);
+
+        MenuMisTorneos1.setText("APUNTARME A UN TORNEO");
+        MenuMisTorneos1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MenuApuntarATorneoMouseClicked(evt);
+            }
+        });
+        MENU.add(MenuMisTorneos1);
+
+        MenuMisTorneos2.setText("RESERVAR SEDE");
+        MenuMisTorneos2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MenuMisTorneosReservarSedeMouseClicked(evt);
+            }
+        });
+        MENU.add(MenuMisTorneos2);
+
+        setJMenuBar(MENU);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,36 +144,39 @@ public class ApuntarTorneo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(16, 16, 16)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1))
+                        .addGap(53, 53, 53))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(16, 16, 16)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(121, 121, 121)
-                        .addComponent(jButton1)))
-                .addContainerGap(124, Short.MAX_VALUE))
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)
+                                .addComponent(jButton1)))
+                        .addContainerGap(426, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(41, 41, 41)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,8 +191,8 @@ public class ApuntarTorneo extends javax.swing.JFrame {
                         .addComponent(jButton2))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         pack();
@@ -158,6 +201,29 @@ public class ApuntarTorneo extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void MenuMisTorneosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMisTorneosMouseClicked
+        VentanaInfoTorneo infotorneo = new VentanaInfoTorneo();
+        infotorneo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_MenuMisTorneosMouseClicked
+
+    private void MenuApuntarATorneoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuApuntarATorneoMouseClicked
+        ApuntarTorneo torneo = new ApuntarTorneo();
+        torneo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_MenuApuntarATorneoMouseClicked
+
+    private void MenuPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuPerfilMouseClicked
+        Perfil perfil = new Perfil();
+        perfil.setVisible(true);
+    }//GEN-LAST:event_MenuPerfilMouseClicked
+
+    private void MenuMisTorneosReservarSedeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMisTorneosReservarSedeMouseClicked
+        ReservarSede advertenciaregistro = new ReservarSede();
+        advertenciaregistro.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_MenuMisTorneosReservarSedeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -195,6 +261,11 @@ public class ApuntarTorneo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar MENU;
+    private javax.swing.JMenu MenuMisTorneos;
+    private javax.swing.JMenu MenuMisTorneos1;
+    private javax.swing.JMenu MenuMisTorneos2;
+    private javax.swing.JMenu MenuPerfil;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;

@@ -42,6 +42,7 @@ public class VentanaInfoTorneo extends javax.swing.JFrame {
         MenuPerfil = new javax.swing.JMenu();
         MenuMisTorneos = new javax.swing.JMenu();
         MenuMisTorneos1 = new javax.swing.JMenu();
+        MenuMisTorneos2 = new javax.swing.JMenu();
 
         jLabel2.setText("jLabel2");
 
@@ -50,7 +51,7 @@ public class VentanaInfoTorneo extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Torneo");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Albacete", "Alicante", "Valencia", "Castellón", "Cuenca", "Lleida", "Murcia", "Tarragona", "Teruel", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Albacete", "Alicante", "Castellón", "Cuenca", "Lleida", "Murcia", "Tarragona", "Teruel", "Valencia" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -129,6 +130,14 @@ public class VentanaInfoTorneo extends javax.swing.JFrame {
             }
         });
         MENU.add(MenuMisTorneos1);
+
+        MenuMisTorneos2.setText("RESERVAR SEDE");
+        MenuMisTorneos2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MenuMisTorneos2MenuMisTorneosReservarSedeMouseClicked(evt);
+            }
+        });
+        MENU.add(MenuMisTorneos2);
 
         setJMenuBar(MENU);
 
@@ -211,6 +220,12 @@ public class VentanaInfoTorneo extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_MenuMisTorneos1MenuApuntarATorneoMouseClicked
 
+    private void MenuMisTorneos2MenuMisTorneosReservarSedeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMisTorneos2MenuMisTorneosReservarSedeMouseClicked
+        ReservarSede advertenciaregistro = new ReservarSede();
+        advertenciaregistro.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_MenuMisTorneos2MenuMisTorneosReservarSedeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -250,6 +265,7 @@ public class VentanaInfoTorneo extends javax.swing.JFrame {
     private javax.swing.JMenuBar MENU;
     private javax.swing.JMenu MenuMisTorneos;
     private javax.swing.JMenu MenuMisTorneos1;
+    private javax.swing.JMenu MenuMisTorneos2;
     private javax.swing.JMenu MenuPerfil;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
