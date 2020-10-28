@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package vista;
 
-import controlador.InicioController;
+import controlador.Controlador;
+import modelo.Federaciones;
 
 /**
  *
@@ -16,13 +17,15 @@ public class Inicio extends javax.swing.JFrame {
     /**
      * Creates new form Inicio
      */
+    private Controlador controlador;
+    private VentanaRegistro ventanaRegistro;
+    private ApuntarTorneo apuntarTorneo;
     
-    private InicioController inicioController;
-            
     public Inicio() {
         initComponents();
-        inicioController = new InicioController();
-        inicioController.llenarFederaciones();
+        controlador = new Controlador(new Federaciones());
+        ventanaRegistro = new VentanaRegistro(controlador);
+        apuntarTorneo = new ApuntarTorneo(controlador);
     }
 
     /**
@@ -135,14 +138,13 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomUsuarioActionPerformed
 
     private void btnRegistrameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrameMouseClicked
-        VentanaRegistro registro = new VentanaRegistro();
-        registro.setVisible(true);
+        ventanaRegistro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegistrameMouseClicked
 
     private void btnOkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOkMouseClicked
-        VentanaInfoTorneo apuntartorneo = new VentanaInfoTorneo();
-        apuntartorneo.setVisible(true);
+        btnOk.setEnabled(controlador.comprobarUsuario(txtNomUsuario.getText(), txtContraseña.getText()));
+        apuntarTorneo.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnOkMouseClicked
 

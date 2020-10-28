@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package vista;
 
 /**
  *
@@ -198,32 +198,23 @@ public class VentanaInfoTorneo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        ApuntarTorneo apuntartorneo = new ApuntarTorneo();
-        apuntartorneo.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void MenuPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuPerfilMouseClicked
-        Perfil perfil = new Perfil();
-        perfil.setVisible(true);
+        
     }//GEN-LAST:event_MenuPerfilMouseClicked
 
     private void MenuMisTorneosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMisTorneosMouseClicked
-        VentanaInfoTorneo infotorneo = new VentanaInfoTorneo();
-        infotorneo.setVisible(true);
-        this.dispose();
+    
     }//GEN-LAST:event_MenuMisTorneosMouseClicked
 
     private void MenuMisTorneos1MenuApuntarATorneoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMisTorneos1MenuApuntarATorneoMouseClicked
-        ApuntarTorneo torneo = new ApuntarTorneo();
-        torneo.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_MenuMisTorneos1MenuApuntarATorneoMouseClicked
 
     private void MenuMisTorneos2MenuMisTorneosReservarSedeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMisTorneos2MenuMisTorneosReservarSedeMouseClicked
-        ReservarSede advertenciaregistro = new ReservarSede();
-        advertenciaregistro.setVisible(true);
-        this.dispose();
+     
     }//GEN-LAST:event_MenuMisTorneos2MenuMisTorneosReservarSedeMouseClicked
 
     /**

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package vista;
 
 /**
  *
@@ -102,14 +102,12 @@ public class VentanaAdvertenciaRegistro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        ApuntarTorneo apuntartorneo = new ApuntarTorneo();
-        apuntartorneo.setVisible(true);
+        
         this.dispose();
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        VentanaRegistro registro = new VentanaRegistro();
-        registro.setVisible(true);
+      
         this.dispose();
     }//GEN-LAST:event_jButton1MouseClicked
 

@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package vista;
+
+import controlador.Controlador;
 
 /**
  *
@@ -14,7 +16,11 @@ public class ApuntarTorneo extends javax.swing.JFrame {
     /**
      * Creates new form ApuntarTorneo
      */
-    public ApuntarTorneo() {
+    
+    private Controlador controlador;
+    
+    public ApuntarTorneo(Controlador controlador) {
+        this.controlador = controlador;
         initComponents();
     }
 
@@ -209,8 +215,8 @@ public class ApuntarTorneo extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuMisTorneosMouseClicked
 
     private void MenuApuntarATorneoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuApuntarATorneoMouseClicked
-        ApuntarTorneo torneo = new ApuntarTorneo();
-        torneo.setVisible(true);
+        
+        
         this.dispose();
     }//GEN-LAST:event_MenuApuntarATorneoMouseClicked
 

@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package vista;
 
-import controlador.RegistroController;
-import javax.swing.DefaultComboBoxModel;
-import modelo.Club;
+import controlador.Controlador;
 
 /**
  *
@@ -19,13 +17,12 @@ public class VentanaRegistro extends javax.swing.JFrame {
      * Creates new form VentanaRegistro
      */
     
-    RegistroController registroController;
+    private final Controlador controlador;
+   
     
-    public VentanaRegistro() {
+    public VentanaRegistro(Controlador controlador) {
         initComponents();
-        
-        registroController = new RegistroController();
-        jComboBoxPronvincia.setModel(new DefaultComboBoxModel(registroController.getProvincias()));
+        this.controlador = controlador;
     }
 
     /**

@@ -12,8 +12,8 @@ import java.util.ArrayList;
  * @author danielsanchezgarcia
  */
 public class Federaciones {
-    
-    private ArrayList <Federacion> federaciones;
+
+    private ArrayList<Federacion> federaciones;
 
     public Federaciones() {
         federaciones = new ArrayList<>();
@@ -23,11 +23,7 @@ public class Federaciones {
         return federaciones;
     }
 
-    public void setFederaciones(ArrayList<Federacion> federaciones) {
-        this.federaciones = federaciones;
-    }
-    
-    public void addFederacion(Federacion federacion){
+    public void addFederaciones(Federacion federacion) {
         federaciones.add(federacion);
     }
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package vista;
 
 /**
  *
@@ -161,8 +161,7 @@ public class ReservarSede extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuMisTorneosMouseClicked
 
     private void MenuMisTorneos1MenuApuntarATorneoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMisTorneos1MenuApuntarATorneoMouseClicked
-        ApuntarTorneo torneo = new ApuntarTorneo();
-        torneo.setVisible(true);
+ 
         this.dispose();
     }//GEN-LAST:event_MenuMisTorneos1MenuApuntarATorneoMouseClicked
 
