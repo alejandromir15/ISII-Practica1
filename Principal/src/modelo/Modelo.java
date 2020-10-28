@@ -5,7 +5,6 @@
  */
 package modelo;
 
-import controlador.Jugador;
 import java.util.Arrays;
 
 /**

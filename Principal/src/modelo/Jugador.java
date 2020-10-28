@@ -3,25 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package modelo;
+
+import java.util.Date;
 
 /**
  *
  * @author Alejandro Mir
  */
 public class Jugador {
-    String nomUsuario;
-    String contraseña;
-    String correo;
-    String cuentabancaria;
+   
+    String nomUsuario, contraseña, correo, cuentabancaria;
     int ELO;
-    String club;
-    String fechaNacimiento;
+    Club club;
+    Date fechaNacimiento;
 
-    public Jugador() {
-    }
-
-    public Jugador(String nomUsuario, String contraseña, String correo, String cuentabancaria, int ELO, String club, String fechaNacimiento) {
+    public Jugador(String nomUsuario, String contraseña, String correo, String cuentabancaria, int ELO, Club club, Date fechaNacimiento) {
         this.nomUsuario = nomUsuario;
         this.contraseña = contraseña;
         this.correo = correo;
@@ -71,21 +68,19 @@ public class Jugador {
         this.ELO = ELO;
     }
 
-    public String getClub() {
+    public Club getClub() {
         return club;
     }
 
-    public void setClub(String club) {
+    public void setClub(Club club) {
         this.club = club;
     }
 
-    public String getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
-    
-    
 }

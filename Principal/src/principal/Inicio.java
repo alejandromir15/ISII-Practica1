@@ -5,6 +5,8 @@
  */
 package principal;
 
+import controlador.InicioController;
+
 /**
  *
  * @author Alejandro Mir
@@ -14,8 +16,13 @@ public class Inicio extends javax.swing.JFrame {
     /**
      * Creates new form Inicio
      */
+    
+    private InicioController inicioController;
+            
     public Inicio() {
         initComponents();
+        inicioController = new InicioController();
+        inicioController.llenarFederaciones();
     }
 
     /**
