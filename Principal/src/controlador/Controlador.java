@@ -12,6 +12,7 @@ import modelo.Federacion;
 import modelo.Federaciones;
 import modelo.Jugador;
 import modelo.Jugadores;
+import vista.ApuntarTorneo;
 import vista.Inicio;
 import vista.VentanaAdvertenciaRegistro;
 import vista.VentanaRegistro;
@@ -26,8 +27,10 @@ public class Controlador {
     private Comunidades comunidades;
     private final Jugadores jugadores;
     private Jugador jugador;
+    private Jugador jugadorTemporal;
     private VentanaAdvertenciaRegistro advertenciaRegistro;
     private VentanaRegistro ventanaRegistro;
+    private ApuntarTorneo apuntarTorneo;
 
     public Controlador() {
         federaciones = new Federaciones();
@@ -35,6 +38,7 @@ public class Controlador {
         comunidades = new Comunidades();
         ventanaRegistro = new VentanaRegistro(this);
         advertenciaRegistro = new VentanaAdvertenciaRegistro(this);
+        apuntarTorneo = new ApuntarTorneo(this);
     }
 
     public void llenarFederaciones() {
@@ -46,6 +50,10 @@ public class Controlador {
             }
             federaciones.addFederaciones(federacion);
         }
+    }
+
+    public ApuntarTorneo getApuntarTorneo() {
+        return apuntarTorneo;
     }
 
     public VentanaAdvertenciaRegistro getAdvertenciaRegistro() {
@@ -75,14 +83,29 @@ public class Controlador {
         return encontrado;
     }
     
+     public void setUsuarioActual(String usuario, String contraseña) {
+        boolean encontrado = false;
+        int indice = 0;
+        Jugador jugadoractual;
+        while (!encontrado) {
+            if (jugadores.getJugadores().get(indice).getNomUsuario().equals(usuario)) {
+                if (jugadores.getJugadores().get(indice).getContraseña().equals(contraseña)) {
+                    encontrado = true;
+                    this.jugador= jugadores.getJugadores().get(indice);
+                } 
+            }
+            indice++; 
+        }
+    }
+    
     public void setJugadorTemporal(Jugador jugador)
     {
-        this.jugador = jugador;
+        this.jugadorTemporal = jugador;
     }
     
     public Jugador getJugadorTemporal()
     {
-        return this.jugador;
+        return this.jugadorTemporal;
     }
     
     public String[] getComunidades()

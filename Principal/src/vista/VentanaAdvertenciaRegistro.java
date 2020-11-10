@@ -114,12 +114,13 @@ public class VentanaAdvertenciaRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-      
+        controlador.getVentanaRegistro();
         this.dispose();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        controlador.addJugador(controlador.getJugadorTemporal().getClub(), controlador.getJugadorTemporal());
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
