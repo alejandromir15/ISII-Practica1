@@ -18,9 +18,6 @@ public class Inicio extends javax.swing.JFrame {
      * Creates new form Inicio
      */
     private Controlador controlador;
-    private VentanaRegistro ventanaRegistro;
-    private ApuntarTorneo apuntarTorneo;
-    private VentanaAdvertenciaRegistro advertenciaRegistro;
     
     public Inicio() {
         initComponents();

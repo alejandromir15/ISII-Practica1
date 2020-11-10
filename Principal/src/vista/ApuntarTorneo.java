@@ -226,8 +226,7 @@ public class ApuntarTorneo extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuPerfilMouseClicked
 
     private void MenuMisTorneosReservarSedeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMisTorneosReservarSedeMouseClicked
-        ReservarSede advertenciaregistro = new ReservarSede();
-        advertenciaregistro.setVisible(true);
+        controlador.ReservarSede().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_MenuMisTorneosReservarSedeMouseClicked
 

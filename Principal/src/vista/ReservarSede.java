@@ -5,17 +5,22 @@
  */
 package vista;
 
+import controlador.Controlador;
+
 /**
  *
  * @author Alejandro Mir
  */
 public class ReservarSede extends javax.swing.JFrame {
 
+    private Controlador controlador;
     /**
      * Creates new form ReservarSede
      */
-    public ReservarSede() {
+    public ReservarSede(Controlador controlador) {
         initComponents();
+        this.controlador = controlador;
+        jTextFieldSede.setText(controlador.getJugador().getClub().getNombre());        
     }
 
     /**
@@ -28,7 +33,7 @@ public class ReservarSede extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldSede = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         MENU = new javax.swing.JMenuBar();
@@ -42,10 +47,10 @@ public class ReservarSede extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Sede:");
 
-        jTextField1.setEditable(false);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldSede.setEditable(false);
+        jTextFieldSede.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextFieldSedeActionPerformed(evt);
             }
         });
 
@@ -127,7 +132,7 @@ public class ReservarSede extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextFieldSede, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(102, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -136,7 +141,7 @@ public class ReservarSede extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(97, Short.MAX_VALUE))
@@ -145,9 +150,9 @@ public class ReservarSede extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextFieldSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSedeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextFieldSedeActionPerformed
 
     private void MenuPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuPerfilMouseClicked
         Perfil perfil = new Perfil();
@@ -166,8 +171,7 @@ public class ReservarSede extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuMisTorneos1MenuApuntarATorneoMouseClicked
 
     private void MenuMisTorneos2MenuMisTorneosReservarSedeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMisTorneos2MenuMisTorneosReservarSedeMouseClicked
-        ReservarSede advertenciaregistro = new ReservarSede();
-        advertenciaregistro.setVisible(true);
+        controlador.ReservarSede().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_MenuMisTorneos2MenuMisTorneosReservarSedeMouseClicked
 
@@ -185,6 +189,6 @@ public class ReservarSede extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldSede;
     // End of variables declaration//GEN-END:variables
 }

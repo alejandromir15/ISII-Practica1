@@ -14,6 +14,7 @@ import modelo.Jugador;
 import modelo.Jugadores;
 import vista.ApuntarTorneo;
 import vista.Inicio;
+import vista.ReservarSede;
 import vista.VentanaAdvertenciaRegistro;
 import vista.VentanaRegistro;
 
@@ -31,6 +32,7 @@ public class Controlador {
     private VentanaAdvertenciaRegistro advertenciaRegistro;
     private VentanaRegistro ventanaRegistro;
     private ApuntarTorneo apuntarTorneo;
+    private ReservarSede reservarSede;
 
     public Controlador() {
         federaciones = new Federaciones();
@@ -52,6 +54,11 @@ public class Controlador {
         }
     }
 
+    public Jugador getJugador() {
+        return jugador;
+    }
+
+    
     public ApuntarTorneo getApuntarTorneo() {
         return apuntarTorneo;
     }
@@ -63,6 +70,13 @@ public class Controlador {
     public VentanaRegistro getVentanaRegistro() {
         return ventanaRegistro;
     }
+
+    public ReservarSede ReservarSede() {
+        reservarSede = new ReservarSede(this);
+        return reservarSede;
+    }
+    
+    
     
     public void addJugador(Club club, Jugador jugador) {
         club.addJugador(jugador);
