@@ -70,33 +70,23 @@ public class Controlador {
 
     public boolean comprobarUsuario(String usuario, String contraseña) {
         boolean encontrado = false;
-        int indice = 0;
-        while (!encontrado) {
-            if (jugadores.getJugadores().get(indice).getNomUsuario().equals(usuario)) {
-                if (jugadores.getJugadores().get(indice).getContraseña().equals(contraseña)) {
-                    encontrado = true;
-                    return encontrado;
+        for(int i = 0; i < comunidades.getComunidades().length; i++) {
+            for(int j = 0; j < federaciones.getFederaciones().get(i).getClubs().size(); j++){
+                for(int w = 0; w < federaciones.getFederaciones().get(i).getClubs().get(j).getJugadores().size(); w++)
+                {
+                    if(federaciones.getFederaciones().get(i).getClubs().get(j).getJugadores().get(w).getNomUsuario().equals(usuario) ||
+                            federaciones.getFederaciones().get(i).getClubs().get(j).getJugadores().get(w).getContraseña().equals(contraseña))
+                    {
+                        encontrado = true;
+                       this.jugador = federaciones.getFederaciones().get(i).getClubs().get(j).getJugadores().get(w);
+                    }
                 }
             }
-            indice++;
+           
         }
         return encontrado;
     }
-    
-     public void setUsuarioActual(String usuario, String contraseña) {
-        boolean encontrado = false;
-        int indice = 0;
-        Jugador jugadoractual;
-        while (!encontrado) {
-            if (jugadores.getJugadores().get(indice).getNomUsuario().equals(usuario)) {
-                if (jugadores.getJugadores().get(indice).getContraseña().equals(contraseña)) {
-                    encontrado = true;
-                    this.jugador= jugadores.getJugadores().get(indice);
-                } 
-            }
-            indice++; 
-        }
-    }
+   
     
     public void setJugadorTemporal(Jugador jugador)
     {
