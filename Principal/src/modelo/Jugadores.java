@@ -23,7 +23,7 @@ public class Jugadores {
         return jugadores;
     }
 
-    public void setJugadores(Jugador jugador) {
+    public void addJugadores(Jugador jugador) {
         jugadores.add(jugador);
     }
 

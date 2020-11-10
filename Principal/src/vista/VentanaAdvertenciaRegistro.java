@@ -5,6 +5,9 @@
  */
 package vista;
 
+import controlador.Controlador;
+import modelo.Jugador;
+
 /**
  *
  * @author Alejandro Mir
@@ -14,8 +17,12 @@ public class VentanaAdvertenciaRegistro extends javax.swing.JFrame {
     /**
      * Creates new form VentanaAdvertenciaRegistro
      */
-    public VentanaAdvertenciaRegistro() {
+    
+    Controlador controlador;
+    
+    public VentanaAdvertenciaRegistro(Controlador controlador) {
         initComponents();
+        this.controlador = controlador;
     }
 
     /**

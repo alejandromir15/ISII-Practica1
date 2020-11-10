@@ -21,7 +21,7 @@ public class Comunidades {
     }
 
     public String[] getComunidades() {
-        return comunidades;
+        return this.comunidades;
     }
 
     public void setComunidades(String[] provincias) {

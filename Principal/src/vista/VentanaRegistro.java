@@ -6,6 +6,9 @@
 package vista;
 
 import controlador.Controlador;
+import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
+import modelo.Jugador;
 
 /**
  *
@@ -23,6 +26,7 @@ public class VentanaRegistro extends javax.swing.JFrame {
     public VentanaRegistro(Controlador controlador) {
         initComponents();
         this.controlador = controlador;
+        jComboBoxPronvincia.setModel(new DefaultComboBoxModel<>(controlador.getComunidades()));
     }
 
     /**
@@ -252,9 +256,12 @@ public class VentanaRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCuentaBancariaActionPerformed
 
     private void jButtonOkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonOkMouseClicked
-        //registroController.addJugador(club, jugador);
-        VentanaAdvertenciaRegistro advertenciaregistro = new VentanaAdvertenciaRegistro();
-        advertenciaregistro.setVisible(true);
+        
+        Date fechaNacimineto = new Date(jComboBoxEdadAnyo.getSelectedIndex(),jComboBoxEdadMes.getSelectedIndex(),jComboBoxEdadDia.getSelectedIndex());
+        controlador.setJugadorTemporal(new Jugador(jTextFieldNombreUsuario.getText(), jPasswordFieldContrasenya.getText(), jTextFieldCorreo.getText(),
+                jTextFieldCuentaBancaria.getText(),0,controlador.getClubs(jComboBoxPronvincia.getSelectedIndex()).get(jComboBoxClub.getSelectedIndex()),
+                fechaNacimineto));
+        controlador.getAdvertenciaRegistro().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonOkMouseClicked
 
@@ -283,7 +290,9 @@ public class VentanaRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxPronvinciaVetoableChange
 
     private void jComboBoxPronvinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPronvinciaActionPerformed
-     
+        
+        jComboBoxClub.setModel(new DefaultComboBoxModel<>(controlador.getClubsName(jComboBoxPronvincia.getSelectedIndex())));
+        System.out.println(jComboBoxPronvincia.getSelectedIndex());
     }//GEN-LAST:event_jComboBoxPronvinciaActionPerformed
 
     /**

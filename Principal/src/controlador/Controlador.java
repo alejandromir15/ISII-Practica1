@@ -13,6 +13,8 @@ import modelo.Federaciones;
 import modelo.Jugador;
 import modelo.Jugadores;
 import vista.Inicio;
+import vista.VentanaAdvertenciaRegistro;
+import vista.VentanaRegistro;
 
 /**
  *
@@ -22,41 +24,38 @@ public class Controlador {
 
     private final Federaciones federaciones;
     private Comunidades comunidades;
-    private final Federacion federacion;
     private final Jugadores jugadores;
+    private Jugador jugador;
+    private VentanaAdvertenciaRegistro advertenciaRegistro;
+    private VentanaRegistro ventanaRegistro;
 
-    public Controlador( Federaciones federaciones) {
-        this.federaciones = federaciones;
-        federacion = new Federacion();
+    public Controlador() {
+        federaciones = new Federaciones();
         jugadores = new Jugadores();
+        comunidades = new Comunidades();
+        ventanaRegistro = new VentanaRegistro(this);
+        advertenciaRegistro = new VentanaAdvertenciaRegistro(this);
     }
 
     public void llenarFederaciones() {
+        System.out.println(comunidades.getComunidades().length);
         for (int i = 0; i < comunidades.getComunidades().length; i++) {
+            Federacion federacion = new Federacion();
             for (int j = 0; j < 10; j++) {
-                federacion.addClub(new Club("Club " + j, comunidades.getComunidades()[i]));
+                federacion.addClub(new Club("Club " + j + "|" + comunidades.getComunidades()[i], comunidades.getComunidades()[i]));
             }
             federaciones.addFederaciones(federacion);
         }
     }
 
-    public ArrayList<Club> getClubs(String provincia) {
-
-        ArrayList<Federacion> federaciones;
-        ArrayList<Club> clubs = null;
-        federaciones = this.federaciones.getFederaciones();
-        boolean encontrado = false;
-        int indice = 0;
-
-        while (!encontrado) {
-            if (federaciones.get(indice).getComunidad().equals(provincia)) {
-                clubs = federaciones.get(indice).getClubs();
-                encontrado = true;
-            }
-        }
-        return clubs;
+    public VentanaAdvertenciaRegistro getAdvertenciaRegistro() {
+        return advertenciaRegistro;
     }
 
+    public VentanaRegistro getVentanaRegistro() {
+        return ventanaRegistro;
+    }
+    
     public void addJugador(Club club, Jugador jugador) {
         club.addJugador(jugador);
     }
@@ -75,4 +74,41 @@ public class Controlador {
         }
         return encontrado;
     }
+    
+    public void setJugadorTemporal(Jugador jugador)
+    {
+        this.jugador = jugador;
+    }
+    
+    public Jugador getJugadorTemporal()
+    {
+        return this.jugador;
+    }
+    
+    public String[] getComunidades()
+    {
+        return comunidades.getComunidades();
+    }
+    
+    public ArrayList <Club> getClubs(int comunidad)
+    {   
+        return federaciones.getFederaciones().get(comunidad).getClubs();
+    }
+    
+    public String[] getClubsName(int comunidada)
+    {
+    
+        ArrayList <Club> clubs = getClubs(comunidada);
+        System.out.println(clubs.size());
+        String nombreClubs[] = new String[clubs.size()];
+           
+        for(int i = 0; i < clubs.size(); i++)
+        {
+            nombreClubs[i]=clubs.get(i).getNombre();
+        }
+        
+        return nombreClubs;
+    }
+    
+  
 }

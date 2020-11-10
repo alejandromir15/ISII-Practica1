@@ -20,12 +20,12 @@ public class Inicio extends javax.swing.JFrame {
     private Controlador controlador;
     private VentanaRegistro ventanaRegistro;
     private ApuntarTorneo apuntarTorneo;
+    private VentanaAdvertenciaRegistro advertenciaRegistro;
     
     public Inicio() {
         initComponents();
-        controlador = new Controlador(new Federaciones());
-        ventanaRegistro = new VentanaRegistro(controlador);
-        apuntarTorneo = new ApuntarTorneo(controlador);
+        controlador = new Controlador();
+        controlador.llenarFederaciones();
     }
 
     /**
@@ -138,7 +138,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomUsuarioActionPerformed
 
     private void btnRegistrameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrameMouseClicked
-        ventanaRegistro.setVisible(true);
+        controlador.getVentanaRegistro().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegistrameMouseClicked
 
