@@ -139,12 +139,12 @@ public class Inicio extends javax.swing.JFrame {
 
     private void btnRegistrameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrameMouseClicked
         controlador.getVentanaRegistro().setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btnRegistrameMouseClicked
 
     private void btnOkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOkMouseClicked
         btnOk.setEnabled(controlador.comprobarUsuario(txtNomUsuario.getText(), txtContraseña.getText()));
-        apuntarTorneo.setVisible(true);
+        controlador.setUsuarioActual(txtNomUsuario.getText(), txtContraseña.getText());
+        controlador.getApuntarTorneo().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnOkMouseClicked
 
