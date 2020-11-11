@@ -20,7 +20,22 @@ public class ReservarSede extends javax.swing.JFrame {
     public ReservarSede(Controlador controlador) {
         initComponents();
         this.controlador = controlador;
-        jTextFieldSede.setText(controlador.getJugador().getClub().getNombre());        
+        jTextFieldSede.setText(controlador.getJugador().getClub().getNombre());
+        for(int i = 0; i < controlador.getJugador().getClub().getHoras().length; i++)
+        {
+        if(controlador.getJugador().getClub().getHoras()[i]== 0){
+            jTable1.setValueAt("Si", i, 1);
+        }
+        else
+        {
+              jTable1.setValueAt("No", i, 1);  
+                }
+        
+        if(controlador.getJugador().getClub().getJugador()[i] != null)
+        {
+            jTable1.setValueAt(controlador.getJugador().getClub().getJugador()[i].getNomUsuario(), i, 2);  
+        }
+        }   
     }
 
     /**
@@ -66,14 +81,14 @@ public class ReservarSede extends javax.swing.JFrame {
                 {"20:00-21:00", null, null}
             },
             new String [] {
-                "Hora", "Disponibilidad", "Apuntar"
+                "Hora", "Disponible", "Apuntar"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Boolean.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -84,7 +99,14 @@ public class ReservarSede extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setColumnSelectionAllowed(true);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         MenuPerfil.setText("PERFIL");
         MenuPerfil.setToolTipText("");
@@ -142,9 +164,9 @@ public class ReservarSede extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextFieldSede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         pack();
@@ -155,8 +177,7 @@ public class ReservarSede extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldSedeActionPerformed
 
     private void MenuPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuPerfilMouseClicked
-        Perfil perfil = new Perfil();
-        perfil.setVisible(true);
+        controlador.perfil().setVisible(true);
     }//GEN-LAST:event_MenuPerfilMouseClicked
 
     private void MenuMisTorneosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMisTorneosMouseClicked
@@ -174,6 +195,12 @@ public class ReservarSede extends javax.swing.JFrame {
         controlador.ReservarSede().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_MenuMisTorneos2MenuMisTorneosReservarSedeMouseClicked
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        jTable1.setValueAt(controlador.getJugador().getNomUsuario(), jTable1.getSelectedRow(), 2);
+        jTable1.setValueAt("No", jTable1.getSelectedRow(), 1);
+        controlador.getJugador().getClub().getHoras()[jTable1.getSelectedRow()] = 1;
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments

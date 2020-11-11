@@ -15,10 +15,12 @@ public class Federacion {
     
     private String comunidad;
     private ArrayList<Club> clubs;
+    private ArrayList <Torneo> torneos;
 
     public Federacion() {
         comunidad = "";
         clubs = new ArrayList<>();
+        torneos = new ArrayList<>();
     }
 
     public String getComunidad() {
@@ -41,4 +43,14 @@ public class Federacion {
     {
         clubs.add(club);
     }    
+
+    public ArrayList<Torneo> getTorneos() {
+        return torneos;
+    }
+
+    public void setTorneos(Torneo torneo) {
+        this.torneos.add(torneo);
+    }
+    
+    
 }

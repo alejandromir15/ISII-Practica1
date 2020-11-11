@@ -17,13 +17,32 @@ public class Club {
     
     private String nombre, comunidad;
     private ArrayList<Jugador> jugadores;
+    private int horas[] = {0,0,0,0,0,0,0,0};
+    private Jugador jugador[]= new Jugador[8];
 
     public Club(String nombre, String comunidad) {
         this.nombre = nombre;
         this.comunidad = comunidad;
         jugadores = new ArrayList<>();
+        
     }
 
+    public int[] getHoras() {
+        return horas;
+    }
+
+    public void setHoras(int hora) {
+        horas[hora] = 1;
+    }
+
+    public Jugador[] getJugador() {
+        return jugador;
+    }
+
+    public void setJugador(int pos, Jugador jugador) {
+        this.jugador[pos]= jugador;
+    }
+    
     public String getNombre() {
         return nombre;
     }

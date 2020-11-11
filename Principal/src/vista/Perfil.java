@@ -5,19 +5,28 @@
  */
 package vista;
 
+import controlador.Controlador;
+
 /**
  *
  * @author Alejandro Mir
  */
 public class Perfil extends javax.swing.JFrame {
 
+    
+    private Controlador controlador;
     /**
      * Creates new form Perfil
      */
-    public Perfil() {
+    public Perfil(Controlador controlador) {
+        this.controlador = controlador;
         initComponents();
+        jTextField1.setText(controlador.getJugador().getNomUsuario());
+        jTextField4.setText(controlador.getJugador().getFechaNacimiento()+"");
+        jTextField2.setText(controlador.getJugador().getClub().getNombre());
+        jTextField3.setText(controlador.getJugador().getCorreo());
+        jTextField5.setText(controlador.getJugador().getELO()+"");
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

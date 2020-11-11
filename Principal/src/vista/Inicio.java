@@ -23,6 +23,7 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         controlador = new Controlador();
         controlador.llenarFederaciones();
+        controlador.llenarTorneos();
     }
 
     /**

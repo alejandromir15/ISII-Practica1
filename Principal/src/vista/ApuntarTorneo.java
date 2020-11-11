@@ -6,6 +6,7 @@
 package vista;
 
 import controlador.Controlador;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -22,6 +23,8 @@ public class ApuntarTorneo extends javax.swing.JFrame {
     public ApuntarTorneo(Controlador controlador) {
         this.controlador = controlador;
         initComponents();
+        jComboBox1.setModel(new DefaultComboBoxModel<>(controlador.getComunidades()));
+        
     }
 
     /**
@@ -67,6 +70,11 @@ public class ApuntarTorneo extends javax.swing.JFrame {
         jLabel2.setText("Federación");
 
         jButton1.setText("Buscar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 
@@ -98,6 +106,11 @@ public class ApuntarTorneo extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jButton2.setText("Apuntar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -148,34 +161,35 @@ public class ApuntarTorneo extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(521, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(53, 53, 53))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1))
-                        .addGap(53, 53, 53))
+                        .addComponent(jLabel4)
+                        .addGap(16, 16, 16)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(16, 16, 16)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addComponent(jButton1)))
-                        .addContainerGap(426, Short.MAX_VALUE))))
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(jButton1)))
+                .addContainerGap(426, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,7 +219,7 @@ public class ApuntarTorneo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        jComboBox2.setModel(new DefaultComboBoxModel<>(controlador.getTorneosName(jComboBox1.getSelectedIndex())));
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void MenuMisTorneosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMisTorneosMouseClicked
@@ -221,14 +235,45 @@ public class ApuntarTorneo extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuApuntarATorneoMouseClicked
 
     private void MenuPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuPerfilMouseClicked
-        Perfil perfil = new Perfil();
-        perfil.setVisible(true);
+        controlador.perfil().setVisible(true);
     }//GEN-LAST:event_MenuPerfilMouseClicked
 
     private void MenuMisTorneosReservarSedeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuMisTorneosReservarSedeMouseClicked
         controlador.ReservarSede().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_MenuMisTorneosReservarSedeMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+
+        for(int j = 0; j < jTable1.getRowCount(); j++)
+        {
+            jTable1.setValueAt("", j, 0);
+            jTable1.setValueAt("", j, 1);
+        }
+        
+        jTextArea1.setText(""+ controlador.getTorneos(jComboBox1.getSelectedIndex()).get(jComboBox2.getSelectedIndex()).getJugadores().size());
+        for (int i = 0; i < 10; i++)
+        {
+            if(controlador.getTorneos(jComboBox1.getSelectedIndex()).get(jComboBox2.getSelectedIndex()).getJugadores().size() > 0)
+            {
+            jTable1.setValueAt(controlador.getTorneos(jComboBox1.getSelectedIndex()).get(jComboBox2.getSelectedIndex()).getJugadores().get(i).getNomUsuario(),i,0);
+            jTable1.setValueAt(controlador.getTorneos(jComboBox2.getSelectedIndex()).get(jComboBox2.getSelectedIndex()).getJugadores().get(i).getClub().getNombre(),i,1);
+            }
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        controlador.getTorneos(jComboBox1.getSelectedIndex()).get(jComboBox2.getSelectedIndex()).addJugadores(controlador.getJugador());
+        jTextArea1.setText(""+ controlador.getTorneos(jComboBox1.getSelectedIndex()).get(jComboBox2.getSelectedIndex()).getJugadores().size());
+        for (int i = 0; i < 10; i++)
+        {
+            if(controlador.getTorneos(jComboBox1.getSelectedIndex()).get(jComboBox2.getSelectedIndex()).getJugadores().size() > 0)
+            {
+            jTable1.setValueAt(controlador.getTorneos(jComboBox1.getSelectedIndex()).get(jComboBox2.getSelectedIndex()).getJugadores().get(i).getNomUsuario(),i,0);
+            jTable1.setValueAt(controlador.getTorneos(jComboBox2.getSelectedIndex()).get(jComboBox2.getSelectedIndex()).getJugadores().get(i).getClub().getNombre(),i,1);
+            }
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
 
 
 
