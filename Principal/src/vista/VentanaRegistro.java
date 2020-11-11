@@ -19,14 +19,14 @@ public class VentanaRegistro extends javax.swing.JFrame {
     /**
      * Creates new form VentanaRegistro
      */
-    
     private final Controlador controlador;
-   
-    
+
     public VentanaRegistro(Controlador controlador) {
         initComponents();
         this.controlador = controlador;
         jComboBoxPronvincia.setModel(new DefaultComboBoxModel<>(controlador.getComunidades()));
+        jTextFieldDniMenor.setEnabled(false);
+        jTextFieldNombreMenor.setEnabled(false);
     }
 
     /**
@@ -92,8 +92,18 @@ public class VentanaRegistro extends javax.swing.JFrame {
         });
 
         jComboBoxEdadMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jComboBoxEdadMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxEdadMesActionPerformed(evt);
+            }
+        });
 
         jComboBoxEdadAnyo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967" }));
+        jComboBoxEdadAnyo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxEdadAnyoActionPerformed(evt);
+            }
+        });
 
         jButtonOk.setText("OK");
         jButtonOk.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -256,10 +266,10 @@ public class VentanaRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCuentaBancariaActionPerformed
 
     private void jButtonOkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonOkMouseClicked
-        
-        Date fechaNacimineto = new Date(jComboBoxEdadAnyo.getSelectedIndex(),jComboBoxEdadMes.getSelectedIndex(),jComboBoxEdadDia.getSelectedIndex());
+
+        Date fechaNacimineto = new Date(Integer.parseInt(jComboBoxEdadAnyo.getSelectedItem().toString()), jComboBoxEdadMes.getSelectedIndex(), Integer.parseInt(jComboBoxEdadDia.getSelectedItem().toString()));
         controlador.setJugadorTemporal(new Jugador(jTextFieldNombreUsuario.getText(), jPasswordFieldContrasenya.getText(), jTextFieldCorreo.getText(),
-                jTextFieldCuentaBancaria.getText(),0,controlador.getClubs(jComboBoxPronvincia.getSelectedIndex()).get(jComboBoxClub.getSelectedIndex()),
+                jTextFieldCuentaBancaria.getText(), 0, controlador.getClubs(jComboBoxPronvincia.getSelectedIndex()).get(jComboBoxClub.getSelectedIndex()),
                 fechaNacimineto));
         controlador.getAdvertenciaRegistro().setVisible(true);
         this.dispose();
@@ -278,7 +288,7 @@ public class VentanaRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonOkActionPerformed
 
     private void jComboBoxEdadDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEdadDiaActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jComboBoxEdadDiaActionPerformed
 
     private void jTextFieldNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreUsuarioActionPerformed
@@ -290,10 +300,23 @@ public class VentanaRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxPronvinciaVetoableChange
 
     private void jComboBoxPronvinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPronvinciaActionPerformed
-        
+
         jComboBoxClub.setModel(new DefaultComboBoxModel<>(controlador.getClubsName(jComboBoxPronvincia.getSelectedIndex())));
-        System.out.println(jComboBoxPronvincia.getSelectedIndex());
     }//GEN-LAST:event_jComboBoxPronvinciaActionPerformed
+
+    private void jComboBoxEdadMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEdadMesActionPerformed
+
+    }//GEN-LAST:event_jComboBoxEdadMesActionPerformed
+
+    private void jComboBoxEdadAnyoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEdadAnyoActionPerformed
+        if (jComboBoxEdadAnyo.getSelectedIndex() <= 16) {
+            jTextFieldDniMenor.setEnabled(true);
+            jTextFieldNombreMenor.setEnabled(true);
+        } else {
+            jTextFieldDniMenor.setEnabled(false);
+            jTextFieldNombreMenor.setEnabled(false);
+        }
+    }//GEN-LAST:event_jComboBoxEdadAnyoActionPerformed
 
     /**
      * @param args the command line arguments

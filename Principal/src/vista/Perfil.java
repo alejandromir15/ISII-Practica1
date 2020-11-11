@@ -6,6 +6,7 @@
 package vista;
 
 import controlador.Controlador;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -22,7 +23,7 @@ public class Perfil extends javax.swing.JFrame {
         this.controlador = controlador;
         initComponents();
         jTextField1.setText(controlador.getJugador().getNomUsuario());
-        jTextField4.setText(controlador.getJugador().getFechaNacimiento()+"");
+        jTextField4.setText(new SimpleDateFormat("dd-MM-yy").format(controlador.getJugador().getFechaNacimiento()));
         jTextField2.setText(controlador.getJugador().getClub().getNombre());
         jTextField3.setText(controlador.getJugador().getCorreo());
         jTextField5.setText(controlador.getJugador().getELO()+"");
@@ -128,13 +129,14 @@ public class Perfil extends javax.swing.JFrame {
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel6))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField3)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-                                    .addComponent(jTextField5))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                                        .addComponent(jTextField1)
+                                        .addComponent(jTextField2)
+                                        .addComponent(jTextField5))
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 9, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
